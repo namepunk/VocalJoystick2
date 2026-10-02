@@ -1,0 +1,127 @@
+<Window x:Class="VocalJoystick.Desktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Vocal Joystick" Height="900" Width="900" MinHeight="760" MinWidth="720">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Margin="24" AutomationProperties.Name="Vocal Joystick control panel">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" Margin="0,0,0,16">
+                <TextBlock Text="Vocal Joystick" FontSize="28" FontWeight="SemiBold" />
+                <TextBlock Text="Диагностика и безопасное управление голосовым курсором" FontSize="16" Margin="0,4,0,0" />
+                <TextBlock Text="Сначала используйте диагностику. Курсор и клики включаются только отдельной кнопкой управления. Команды 0/1 назначены на левый/правый клик."
+                           TextWrapping="Wrap" Margin="0,8,0,0" />
+            </StackPanel>
+
+            <GroupBox Grid.Row="1" Header="Микрофон" Margin="0,0,0,16" Padding="12">
+                <Grid>
+                    <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                    <ComboBox x:Name="MicrophoneBox" MinHeight="32" VerticalContentAlignment="Center"
+                              AutomationProperties.Name="Микрофон" />
+                    <Button Grid.Column="1" Content="Обновить список" Margin="12,0,0,0" Padding="12,6"
+                            Click="RefreshDevices_Click" AutomationProperties.Name="Обновить список микрофонов" />
+                </Grid>
+            </GroupBox>
+
+            <GroupBox Grid.Row="2" Header="Файлы профиля" Margin="0,0,0,16" Padding="12">
+                <Grid>
+                    <Grid.ColumnDefinitions><ColumnDefinition Width="150" /><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /></Grid.RowDefinitions>
+                    <TextBlock Text="Нормализация" VerticalAlignment="Center" />
+                    <TextBox x:Name="NormsPathBox" Grid.Column="1" Margin="12,4" AutomationProperties.Name="Файл нормализации" />
+                    <Button Grid.Column="2" Content="Обзор…" Tag="norms" Padding="10,4" Click="Browse_Click" />
+                    <TextBlock Grid.Row="1" Text="Модель" VerticalAlignment="Center" />
+                    <TextBox x:Name="ModelPathBox" Grid.Row="1" Grid.Column="1" Margin="12,4" AutomationProperties.Name="Файл модели" />
+                    <Button Grid.Row="1" Grid.Column="2" Content="Обзор…" Tag="model" Padding="10,4" Click="Browse_Click" />
+                    <TextBlock Grid.Row="2" Text="Параметры" VerticalAlignment="Center" />
+                    <TextBox x:Name="ParametersPathBox" Grid.Row="2" Grid.Column="1" Margin="12,4" AutomationProperties.Name="Файл параметров" />
+                    <Button Grid.Row="2" Grid.Column="2" Content="Обзор…" Tag="parameters" Padding="10,4" Click="Browse_Click" />
+                    <TextBlock Grid.Row="3" Text="Мощность" VerticalAlignment="Center" />
+                    <TextBox x:Name="PowerPathBox" Grid.Row="3" Grid.Column="1" Margin="12,4" AutomationProperties.Name="Файл мощности" />
+                    <Button Grid.Row="3" Grid.Column="2" Content="Обзор…" Tag="power" Padding="10,4" Click="Browse_Click" />
+                    <TextBlock Grid.Row="4" Text="Регрессия" VerticalAlignment="Center" />
+                    <TextBox x:Name="RegressionPathBox" Grid.Row="4" Grid.Column="1" Margin="12,4" AutomationProperties.Name="Файл линейной регрессии" />
+                    <Button Grid.Row="4" Grid.Column="2" Content="Обзор…" Tag="regression" Padding="10,4" Click="Browse_Click" />
+                    <TextBlock Grid.Row="5" Text="Модель команд" VerticalAlignment="Center" />
+                    <TextBox x:Name="CommandModelPathBox" Grid.Row="5" Grid.Column="1" Margin="12,4" AutomationProperties.Name="Акустическая модель команд" />
+                    <Button Grid.Row="5" Grid.Column="2" Content="Обзор…" Tag="commandModel" Padding="10,4" Click="Browse_Click" />
+                    <TextBlock Grid.Row="6" Text="Словарь команд" VerticalAlignment="Center" />
+                    <TextBox x:Name="CommandDictionaryPathBox" Grid.Row="6" Grid.Column="1" Margin="12,4" AutomationProperties.Name="Словарь команд" />
+                    <Button Grid.Row="6" Grid.Column="2" Content="Обзор…" Tag="commandDictionary" Padding="10,4" Click="Browse_Click" />
+                </Grid>
+            </GroupBox>
+
+            <GroupBox Grid.Row="3" Header="Обучение движения курсора" Margin="0,0,0,16" Padding="12">
+                <StackPanel>
+                    <TextBlock Text="Сначала выберите микрофон. Для каждого направления запишите минимум 3 одинаковых коротких звука; сбор одного образца закончится автоматически после 60 речевых кадров. WAV каждого образца сохраняется локально в профиле пользователя. Курсор во время обучения отключён."
+                               TextWrapping="Wrap" Margin="0,0,0,8" />
+                    <WrapPanel>
+                        <Button x:Name="TrainUpButton" Content="Записать образец: вверх" Tag="0" Padding="12,7" Margin="0,0,8,8" Click="CollectMotionExample_Click" />
+                        <Button x:Name="TrainRightButton" Content="Записать образец: вправо" Tag="1" Padding="12,7" Margin="0,0,8,8" Click="CollectMotionExample_Click" />
+                        <Button x:Name="TrainDownButton" Content="Записать образец: вниз" Tag="2" Padding="12,7" Margin="0,0,8,8" Click="CollectMotionExample_Click" />
+                        <Button x:Name="TrainLeftButton" Content="Записать образец: влево" Tag="3" Padding="12,7" Margin="0,0,8,8" Click="CollectMotionExample_Click" />
+                        <Button x:Name="TrainMotionButton" Content="Обучить и сохранить модель" Padding="12,7" Margin="0,0,8,8" Click="TrainMotion_Click" IsEnabled="False" />
+                    </WrapPanel>
+                    <TextBlock x:Name="MotionTrainingText" Text="Образцы: вверх 0/3, вправо 0/3, вниз 0/3, влево 0/3. Используется базовая модель." TextWrapping="Wrap" />
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox Grid.Row="4" Header="Обучение голосовых команд" Margin="0,0,0,16" Padding="12">
+                <StackPanel>
+                    <TextBlock Text="Нажмите кнопку класса и произнесите звук один раз. Запись WAV и акустических кадров завершится автоматически по VAD; нужно минимум 3 образца каждого класса. Модель команд включится после обучения."
+                               TextWrapping="Wrap" Margin="0,0,0,8" />
+                    <WrapPanel Margin="0,0,0,8">
+                        <TextBlock Text="Множитель порога distance (меньше — строже, 1.0 — авто):" VerticalAlignment="Center" Margin="0,0,8,0" />
+                        <TextBox x:Name="CommandThresholdMultiplierBox" Text="1.0" Width="65" VerticalContentAlignment="Center"
+                                 AutomationProperties.Name="Множитель порога принятия голосовых команд" />
+                        <TextBlock Text="Изменение применится после перезапуска диагностики." VerticalAlignment="Center" Margin="8,0,0,0" />
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Button Content="Записать К → левый клик" Tag="0" Padding="12,7" Margin="0,0,8,8" Click="CollectCommandExample_Click" />
+                        <Button Content="Записать Ч → правый клик" Tag="1" Padding="12,7" Margin="0,0,8,8" Click="CollectCommandExample_Click" />
+                        <Button x:Name="TrainCommandButton" Content="Обучить команды" Padding="12,7" Margin="0,0,8,8" Click="TrainCommand_Click" IsEnabled="False" />
+                    </WrapPanel>
+                    <TextBlock x:Name="CommandTrainingText" Text="Образцы команд: К 0/3, Ч 0/3." TextWrapping="Wrap" />
+                </StackPanel>
+            </GroupBox>
+
+            <StackPanel Grid.Row="5" Margin="0,0,0,16">
+                <WrapPanel>
+                    <Button x:Name="SetupButton" Content="Первичная настройка" Padding="16,9" Margin="0,0,8,8" Click="SetupWizard_Click" />
+                    <Button x:Name="StartDiagnosticsButton" Content="Начать диагностику" Padding="16,9" Margin="0,0,8,8" Click="StartDiagnostics_Click" />
+                    <Button x:Name="EnableCursorButton" Content="Включить управление курсором" Padding="16,9" Margin="0,0,8,8" Click="EnableCursor_Click" />
+                    <Button x:Name="PauseButton" Content="Пауза" Padding="16,9" Margin="0,0,8,8" Click="Pause_Click" IsEnabled="False" />
+                    <Button x:Name="StopButton" Content="Остановить" Padding="16,9" Margin="0,0,8,8" Click="Stop_Click" IsEnabled="False" />
+                    <TextBlock Text="Масштаб (пикселей на единицу скорости):" VerticalAlignment="Center" Margin="8,0,6,8" />
+                    <TextBox x:Name="PixelScaleBox" Text="0.1" Width="70" Margin="0,0,0,8" VerticalContentAlignment="Center" AutomationProperties.Name="Масштаб скорости" />
+                </WrapPanel>
+                <TextBlock x:Name="StatusText" Text="Остановлено. Выберите микрофон и проверьте файлы профиля." FontWeight="SemiBold" TextWrapping="Wrap" />
+            </StackPanel>
+
+            <GroupBox Grid.Row="6" Header="Диагностика — последнее состояние" Padding="12">
+                <StackPanel>
+                    <GroupBox Header="1. Общие данные аудиопотока" Margin="0,0,0,8" Padding="8">
+                        <TextBlock x:Name="AudioDiagnosticsText" Text="Захват не запущен." TextWrapping="Wrap"
+                                   AutomationProperties.Name="Последнее состояние аудиопотока" />
+                    </GroupBox>
+                    <GroupBox Header="2. Диагностика направлений" Margin="0,0,0,8" Padding="8">
+                        <TextBlock x:Name="DirectionDiagnosticsText" Text="Ожидание распознавания." TextWrapping="Wrap"
+                                   AutomationProperties.Name="Последнее состояние распознавания направлений" />
+                    </GroupBox>
+                    <GroupBox Header="3. Диагностика кликов" Padding="8">
+                        <TextBlock x:Name="ClickDiagnosticsText" Text="Ожидание речевого сегмента." TextWrapping="Wrap"
+                                   AutomationProperties.Name="Последнее состояние распознавания и отправки клика" />
+                    </GroupBox>
+                </StackPanel>
+            </GroupBox>
+        </Grid>
+    </ScrollViewer>
+</Window>

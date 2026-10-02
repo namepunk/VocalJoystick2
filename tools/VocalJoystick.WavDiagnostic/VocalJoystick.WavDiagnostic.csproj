@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\VocalJoystick.Core\VocalJoystick.Core.csproj" />
+    <ProjectReference Include="..\..\src\VocalJoystick.Features\VocalJoystick.Features.csproj" />
+    <ProjectReference Include="..\..\src\VocalJoystick.Models\VocalJoystick.Models.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>

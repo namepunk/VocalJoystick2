@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="coverlet.collector" Version="6.0.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+    <PackageReference Include="xunit" Version="2.5.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.5.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\VocalJoystick.Features\VocalJoystick.Features.csproj" />
+    <ProjectReference Include="..\..\src\VocalJoystick.Models\VocalJoystick.Models.csproj" />
+    <ProjectReference Include="..\..\src\VocalJoystick.Audio\VocalJoystick.Audio.csproj" />
+    <ProjectReference Include="..\..\src\VocalJoystick.Motion\VocalJoystick.Motion.csproj" />
+    <ProjectReference Include="..\..\src\VocalJoystick.Input\VocalJoystick.Input.csproj" />
+    <ProjectReference Include="..\..\src\VocalJoystick.Commands\VocalJoystick.Commands.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\1_VocalJoystick\SourceDir\vjlib\data\bmmf\vj.hmmf" Link="legacy\vj.hmmf" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\..\1_VocalJoystick\SourceDir\vjlib\data\dict\vj.dict" Link="legacy\vj.dict" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\..\1_VocalJoystick\SourceDir\vjlib\data\params\prm.cfg" Link="legacy\prm.cfg" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+</Project>

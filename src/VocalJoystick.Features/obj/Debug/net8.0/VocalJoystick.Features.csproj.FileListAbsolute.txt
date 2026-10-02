@@ -1,0 +1,10 @@
+/mnt/c/work/trash/Vocaljoystick2/src/VocalJoystick.Features/bin/Debug/net8.0/VocalJoystick.Core.dll
+/mnt/c/work/trash/Vocaljoystick2/src/VocalJoystick.Features/bin/Debug/net8.0/VocalJoystick.Core.pdb
+/mnt/c/work/trash/Vocaljoystick2/src/VocalJoystick.Features/obj/Debug/net8.0/VocalJoystick.Features.csproj.AssemblyReference.cache
+/mnt/c/work/trash/Vocaljoystick2/src/VocalJoystick.Features/obj/Debug/net8.0/VocalJoystick.Features.GeneratedMSBuildEditorConfig.editorconfig
+/mnt/c/work/trash/Vocaljoystick2/src/VocalJoystick.Features/obj/Debug/net8.0/VocalJoystick.Features.AssemblyInfoInputs.cache
+/mnt/c/work/trash/Vocaljoystick2/src/VocalJoystick.Features/obj/Debug/net8.0/VocalJoystick.Features.AssemblyInfo.cs
+/mnt/c/work/trash/Vocaljoystick2/src/VocalJoystick.Features/obj/Debug/net8.0/VocalJoystick.Features.csproj.CoreCompileInputs.cache
+/mnt/c/work/trash/Vocaljoystick2/src/VocalJoystick.Features/obj/Debug/net8.0/VocalJoystick.Features.dll
+/mnt/c/work/trash/Vocaljoystick2/src/VocalJoystick.Features/obj/Debug/net8.0/refint/VocalJoystick.Features.dll
+/mnt/c/work/trash/Vocaljoystick2/src/VocalJoystick.Features/obj/Debug/net8.0/VocalJoystick.Features.pdb

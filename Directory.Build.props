@@ -1,0 +1,13 @@
+<Project>
+  <!--
+    The working tree is mounted from Windows into WSL. MSBuild cannot reliably
+    set timestamps on its incremental-build marker files there, so keep all
+    disposable build products on the Linux filesystem. Source and assets stay
+    in the repository.
+  -->
+  <PropertyGroup>
+    <BaseIntermediateOutputPath>/tmp/vocaljoystick-obj/$(MSBuildProjectName)/</BaseIntermediateOutputPath>
+    <BaseOutputPath>/tmp/vocaljoystick-bin/$(MSBuildProjectName)/</BaseOutputPath>
+    <DefaultItemExcludes>$(DefaultItemExcludes);**/obj/**;**/bin/**</DefaultItemExcludes>
+  </PropertyGroup>
+</Project>

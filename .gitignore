@@ -1,0 +1,7 @@
+/venv/
+.idea
+test.py
+__pycache__/
+/artifacts
+/input
+/1_VocalJoystick

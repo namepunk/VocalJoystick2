@@ -1,0 +1,94 @@
+{
+  "version": 3,
+  "targets": {
+    "net8.0": {
+      "VocalJoystick.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/VocalJoystick.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/VocalJoystick.Core.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "VocalJoystick.Core/1.0.0": {
+      "type": "project",
+      "path": "../VocalJoystick.Core/VocalJoystick.Core.csproj",
+      "msbuildProject": "../VocalJoystick.Core/VocalJoystick.Core.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net8.0": [
+      "VocalJoystick.Core >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "/tmp/vocaljoystick-dotnet/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/mnt/c/work/trash/Vocaljoystick2/src/VocalJoystick.Features/VocalJoystick.Features.csproj",
+      "projectName": "VocalJoystick.Features",
+      "projectPath": "/mnt/c/work/trash/Vocaljoystick2/src/VocalJoystick.Features/VocalJoystick.Features.csproj",
+      "packagesPath": "/tmp/vocaljoystick-dotnet/.nuget/packages/",
+      "outputPath": "/mnt/c/work/trash/Vocaljoystick2/src/VocalJoystick.Features/obj/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/tmp/vocaljoystick-dotnet/.nuget/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "net8.0"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "projectReferences": {
+            "/mnt/c/work/trash/Vocaljoystick2/src/VocalJoystick.Core/VocalJoystick.Core.csproj": {
+              "projectPath": "/mnt/c/work/trash/Vocaljoystick2/src/VocalJoystick.Core/VocalJoystick.Core.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      }
+    },
+    "frameworks": {
+      "net8.0": {
+        "targetAlias": "net8.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.425/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

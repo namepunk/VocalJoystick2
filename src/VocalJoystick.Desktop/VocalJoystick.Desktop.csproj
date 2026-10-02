@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\VocalJoystick.Audio\VocalJoystick.Audio.csproj" />
+    <ProjectReference Include="..\VocalJoystick.Commands\VocalJoystick.Commands.csproj" />
+    <ProjectReference Include="..\VocalJoystick.Core\VocalJoystick.Core.csproj" />
+    <ProjectReference Include="..\VocalJoystick.Features\VocalJoystick.Features.csproj" />
+    <ProjectReference Include="..\VocalJoystick.Input\VocalJoystick.Input.csproj" />
+    <ProjectReference Include="..\VocalJoystick.Models\VocalJoystick.Models.csproj" />
+    <ProjectReference Include="..\VocalJoystick.Motion\VocalJoystick.Motion.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\1_VocalJoystick\SourceDir\vjlib\data\params\vj.norms"
+             Link="profiles\vj.norms" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="..\..\1_VocalJoystick\SourceDir\vjlib\data\params\prm.cfg"
+             Link="profiles\prm.cfg" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="..\..\1_VocalJoystick\SourceDir\vjlib\data\params\vj.lr"
+             Link="profiles\vj.lr" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="..\..\1_VocalJoystick\SourceDir\vjlib\data\users\default\s4.mlrsc"
+             Link="profiles\s4.mlrsc" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="..\..\1_VocalJoystick\SourceDir\vjlib\data\users\default\s4.power"
+             Link="profiles\s4.power" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="..\..\1_VocalJoystick\SourceDir\vjlib\data\users\default\d.hmmf"
+             Link="profiles\d.hmmf" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="..\..\1_VocalJoystick\SourceDir\vjlib\data\dict\vj.dict"
+             Link="profiles\vj.dict" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>

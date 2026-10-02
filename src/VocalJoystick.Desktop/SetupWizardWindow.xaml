@@ -1,0 +1,40 @@
+<Window x:Class="VocalJoystick.Desktop.SetupWizardWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Первичная настройка Vocal Joystick" Width="620" Height="510" MinWidth="560" MinHeight="450"
+        WindowStartupLocation="CenterOwner">
+    <Grid Margin="24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TextBlock Text="Первичная настройка" FontSize="26" FontWeight="SemiBold" />
+        <TextBlock Grid.Row="1" Margin="0,8,0,20" TextWrapping="Wrap"
+                   Text="Этот мастер не записывает голос и не двигает курсор. Он помогает выбрать микрофон, увидеть входной уровень и сохранить безопасный начальный масштаб." />
+        <StackPanel Grid.Row="2">
+            <TextBlock Text="1. Выберите микрофон" FontWeight="SemiBold" />
+            <DockPanel Margin="0,8,0,20">
+                <Button DockPanel.Dock="Right" Content="Обновить" Padding="12,5" Click="Refresh_Click" />
+                <ComboBox x:Name="MicrophoneBox" MinHeight="32" Margin="0,0,12,0" VerticalContentAlignment="Center" AutomationProperties.Name="Микрофон для настройки" />
+            </DockPanel>
+            <TextBlock Text="2. Проверьте уровень голоса" FontWeight="SemiBold" />
+            <WrapPanel Margin="0,8,0,6">
+                <Button x:Name="LevelButton" Content="Начать проверку уровня" Padding="12,6" Click="LevelButton_Click" />
+                <TextBlock x:Name="LevelText" Text="Остановлено" VerticalAlignment="Center" Margin="12,0,0,0" />
+            </WrapPanel>
+            <ProgressBar x:Name="LevelBar" Minimum="0" Maximum="8000" Height="22" AutomationProperties.Name="Текущий уровень микрофона" />
+            <TextBlock Text="Говорите обычным голосом. Это только живой индикатор и не сохраняет звук." TextWrapping="Wrap" Margin="0,6,0,20" />
+            <TextBlock Text="3. Начальный масштаб курсора" FontWeight="SemiBold" />
+            <WrapPanel Margin="0,8,0,0">
+                <TextBox x:Name="ScaleBox" Width="80" VerticalContentAlignment="Center" AutomationProperties.Name="Начальный масштаб курсора" />
+                <TextBlock Text=" пикселей на единицу скорости (рекомендуется начать с 0.1)" VerticalAlignment="Center" Margin="8,0,0,0" />
+            </WrapPanel>
+        </StackPanel>
+        <DockPanel Grid.Row="3" Margin="0,24,0,0">
+            <Button DockPanel.Dock="Right" Content="Сохранить настройку" Padding="14,7" IsDefault="True" Click="Save_Click" />
+            <Button DockPanel.Dock="Right" Content="Отмена" Padding="14,7" Margin="0,0,8,0" IsCancel="True" />
+        </DockPanel>
+    </Grid>
+</Window>
